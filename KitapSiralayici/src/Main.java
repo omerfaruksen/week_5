@@ -34,7 +34,7 @@ public class Main {
         System.out.println("Kitabın Adına Göre Sıralama : ");
         System.out.println();
         System.out.println("Kitabın Adı:                        Kitabın Yazarı:        Sayfa Sayısı: Yayın Tarihi:");
-    for (Books write : books){
+    for (Books write : writer){
         System.out.println(write.getBookName()+"\t\t\t"+write.getWriterName()+"\t\t\t"+write.getPageNumber()+"\t\t\t"+write.getReleaseDate());
     }
 
