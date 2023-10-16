@@ -13,13 +13,47 @@ public class Consol {
         int selected=select.nextInt();
         System.out.println("-----------------------------------------------");
         SmartPhoneOperations.mobilePhones();
+        NotebookOperations.noteBooks();
         while (true){
             switch (selected){
                 case 0:
                     System.out.println("Çıkış yaptınız ! İyi günler dileriz.");
                     break;
                 case 1:
-                    //Bilgisayarlar
+                    System.out.println("1- Ürünleri Listele ");
+                    System.out.println("2- Ürün ekle ");
+                    System.out.println("3- Ürün sil ");
+                    System.out.println("4- Filtreleme");
+                    System.out.println("0- Ana menüye dön ");
+                    System.out.print("Yapmak istediğiniz işlemi seçiniz : ");
+                    int selectnum=select.nextInt();
+                    switch (selectnum){
+                        case 0:
+                            screenConsol();
+                            break;
+                        case 1:
+                            System.out.println("Ürünler");
+                            NotebookOperations.printList();
+                            screenConsol();
+                            break;
+                        case 2:
+                            NotebookOperations.addNotebooks();
+                            screenConsol();
+                            break;
+                        case 3:
+
+
+                            screenConsol();
+                            break;
+                        case 4:
+
+                            screenConsol();
+                            break;
+                        default:
+                            System.out.println("Hatalı bir giriş yaptınız!! Ana Menüye yönlendiriliyorsunuz!!");
+                            screenConsol();
+                    }
+
                     break;
                 case 2:
                     System.out.println("1- Ürünleri Listele ");
@@ -34,6 +68,7 @@ public class Consol {
                             screenConsol();
                             break;
                         case 1:
+                            System.out.println("Ürünler");
                             SmartPhoneOperations.printList();
                             screenConsol();
                             break;
@@ -69,7 +104,7 @@ public class Consol {
                     break;
                 default:
                     System.out.println("Hatalı giriş yaptınız tekrar giriş yapınız !");
-
+                    screenConsol();
             }
             break;
 
