@@ -25,6 +25,7 @@ public class Consol {
                     System.out.println("1- Ürünleri Listele ");
                     System.out.println("2- Ürün ekle ");
                     System.out.println("3- Ürün sil ");
+                    System.out.println("4- ID Filtreleme");
                     System.out.println("0- Ana menüye dön ");
                     System.out.print("Yapmak istediğiniz işlemi seçiniz : ");
                     int selectnumber=select.nextInt();
@@ -43,6 +44,9 @@ public class Consol {
                         case 3:
                             SmartPhoneOperations.deleteMobilePhone();
                             screenConsol();
+                            break;
+                        case 4:
+                            SmartPhoneOperations.filterById();
                             break;
                         default:
                             System.out.println("Hatalı bir giriş yaptınız!! Ana Menüye yönlendiriliyorsunuz!!");
