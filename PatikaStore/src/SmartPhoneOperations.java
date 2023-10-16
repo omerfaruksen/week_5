@@ -101,7 +101,6 @@ public class SmartPhoneOperations {
 
         for (SmartPhone sm : smartPhones) {
             if (sm.getId() == id) {
-                isCheck=true;
                 System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------");
                 System.out.format("| %-2s | %-27s |%-12s | %-10s | %-10s | %-9s | %-16s | %-9s | %-10s | %-10s |\n",
                         "ID", "Ürün Adı", "Marka", "Fiyat", "Stok", "Ekran", "İndirim Oranı", "Pil", "RAM", "RENK");
@@ -111,6 +110,27 @@ public class SmartPhoneOperations {
                         sm.getDiscountRate(), sm.getBattary(), sm.getRam(), sm.getColor());
                 System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------");
                 break;
+            }
+        }
+    }
+    public static void filterByBrandName(){
+        System.out.print("Ürünün markasını giriniz : ");
+        Scanner brand=new Scanner(System.in);
+        String brandName=brand.nextLine();
+        for (SmartPhone sm: smartPhones){
+            if (sm.getBrandName().equals(brandName)){
+                System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------");
+                System.out.format("| %-2s | %-27s |%-12s | %-10s | %-10s | %-9s | %-16s | %-9s | %-10s | %-10s |\n",
+                        "ID", "Ürün Adı", "Marka", "Fiyat", "Stok", "Ekran", "İndirim Oranı", "Pil", "RAM", "RENK");
+                System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------");
+                System.out.format("| %-2d | %-27s |%-12s | %-10.2f | %-10d | %-9.1f | %-16d | %-9d | %-10d | %-10s |\n",
+                        sm.getId(), sm.getName(), sm.getBrandName(), sm.getPrice(), sm.getAmountOfStock(), sm.getScreen(),
+                        sm.getDiscountRate(), sm.getBattary(), sm.getRam(), sm.getColor());
+                System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------");
+                break;
+            }
+            if (!sm.getBrandName().equals(brandName)) {
+                System.out.println("Ürün bulunamadı!");
             }
         }
     }

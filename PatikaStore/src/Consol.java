@@ -25,7 +25,7 @@ public class Consol {
                     System.out.println("1- Ürünleri Listele ");
                     System.out.println("2- Ürün ekle ");
                     System.out.println("3- Ürün sil ");
-                    System.out.println("4- ID Filtreleme");
+                    System.out.println("4- Filtreleme");
                     System.out.println("0- Ana menüye dön ");
                     System.out.print("Yapmak istediğiniz işlemi seçiniz : ");
                     int selectnumber=select.nextInt();
@@ -46,7 +46,17 @@ public class Consol {
                             screenConsol();
                             break;
                         case 4:
-                            SmartPhoneOperations.filterById();
+                            System.out.print("Filtreleme kriterini belirleyiniz : \n 1- ID numarasına göre \n 2- Markasına göre \n Tercihiniz : ");
+                            Scanner scan=new Scanner(System.in);
+                            int choose=scan.nextInt();
+                            if (choose==1){
+                                SmartPhoneOperations.filterById();
+                            } else if (choose==2) {
+                                SmartPhoneOperations.filterByBrandName();
+                            }else{
+                                System.out.println("Hatalı bir giriş yaptınız!! Ana Menüye yönlendiriliyorsunuz!!");
+                                screenConsol();
+                            }
                             break;
                         default:
                             System.out.println("Hatalı bir giriş yaptınız!! Ana Menüye yönlendiriliyorsunuz!!");
