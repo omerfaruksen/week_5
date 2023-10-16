@@ -34,24 +34,24 @@ public class Consol {
                             break;
                         case 1:
                             SmartPhoneOperations.printList();
+                            screenConsol();
                             break;
                         case 2:
                             SmartPhoneOperations.addMobilePhones();
+                            screenConsol();
                             break;
                         case 3:
                             SmartPhoneOperations.deleteMobilePhone();
-                            break;
-                        case 4:
+                            screenConsol();
                             break;
                         default:
+                            System.out.println("Hatalı bir giriş yaptınız!! Ana Menüye yönlendiriliyorsunuz!!");
+                            screenConsol();
                     }
-
-
                     break;
                 case 3:
-                    //Markalar listelenir.
                     Brand.print();
-
+                    screenConsol();
                     break;
                 default:
                     System.out.println("Hatalı giriş yaptınız tekrar giriş yapınız !");

@@ -7,14 +7,17 @@ public class SmartPhone extends Product{
     private int battary;
     private int ram;
     private String color;
+    private String brandName;
 
-    public SmartPhone(int id, double price, int discountRate, int amountOfStock, String name, int memory, double screen, int battary, int ram, String color) {
+
+    public SmartPhone(int id, double price, String brandName ,int discountRate, int amountOfStock, String name, int memory, double screen, int battary, int ram, String color) {
         super(id, price, discountRate, amountOfStock, name);
         this.memory = memory;
         this.screen = screen;
         this.battary = battary;
         this.ram = ram;
         this.color = color;
+        this.brandName = brandName;
     }
 
     public int getMemory() {
@@ -55,5 +58,13 @@ public class SmartPhone extends Product{
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
     }
 }
