@@ -11,16 +11,16 @@ public class NotebookOperations {
 
     }
     public static void printList() {
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-        System.out.format("| %-2s | %-27s |%-12s | %-10s | %-10s | %-9s | %-16s | %-9s |\n",
-                "ID", "Ürün Adı", "Marka", "Fiyat", "Stok", "Ekran", "İndirim Oranı", "RAM");
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+        System.out.format("| %-2s | %-27s |%-12s | %-10s | %-7s |%-10s| %-9s | %-16s | %-9s |\n",
+                "ID", "Ürün Adı", "Marka", "Fiyat", "Stok", "Ekran","Depoloama", "İndirim Oranı", "RAM");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
         for (Notebook nb : notebooks) {
             //System.out.println(sm.getId()+" "+sm.getPrice()+" "+sm.getDiscountRate()+" "+sm.getAmountOfStock()+" "+sm.getName()+" "+sm.getMemory()+" "+sm.getScreen()+" "+sm.getBattary()+" "+sm.getRam()+" "+sm.getColor());
-            System.out.format("| %-2d | %-27s |%-12s | %-10.2f | %-10d | %-9d | %-16d | %-9d |\n",
-                    nb.getId(), nb.getName(), nb.getBrandName(), nb.getPrice(), nb.getAmountOfStock(), nb.getScreen(),
+            System.out.format("| %-2d | %-27s |%-12s | %-10.2f |%-7d| %-10d | %-9d | %-16d | %-9d |\n",
+                    nb.getId(), nb.getName(), nb.getBrandName(), nb.getPrice(), nb.getAmountOfStock(),nb.getScreen(), nb.getMemory(),
                     nb.getDiscountRate(),  nb.getRam());
-            System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
         }
     }
 
@@ -62,6 +62,58 @@ public class NotebookOperations {
         notebooks.add(new Notebook(id,price,discountRate,amountOfStock,name,brandName,ram,memory,screen));
         System.out.println("Ürün başarılı bir şekilde eklendi !");
         printList();
+    }
+    public static void deleteNotebook() {
+        printList();
+        Scanner delete = new Scanner(System.in);
+        System.out.println("Silmek istediğiniz ürünün ID numarasını giriniz : ");
+        int id = delete.nextInt();
+        notebooks.remove(id - 1);
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Ürün başarılı bir şekilde silindi !");
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+        printList();
+    }
+    public static void filterById() {
+        System.out.println("ID numarasını giriniz : ");
+        boolean isCheck=false;
+        Scanner searchId = new Scanner(System.in);
+        int id = searchId.nextInt();
+
+        for (Notebook nb : notebooks) {
+            if (nb.getId() == id) {
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+                System.out.format("| %-2s | %-27s |%-12s | %-10s | %-7s |%-10s| %-9s | %-16s | %-9s |\n",
+                        "ID", "Ürün Adı", "Marka", "Fiyat", "Stok", "Ekran","Depoloama", "İndirim Oranı", "RAM");
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+                System.out.format("| %-2d | %-27s |%-12s | %-10.2f |%-7d| %-10d | %-9d | %-16d | %-9d |\n",
+                        nb.getId(), nb.getName(), nb.getBrandName(), nb.getPrice(), nb.getAmountOfStock(),nb.getScreen(), nb.getMemory(),
+                        nb.getDiscountRate(),  nb.getRam());
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+                break;
+            }
+        }
+    }
+    public static void filterByBrandName(){
+        System.out.print("Ürünün markasını giriniz : ");
+        Scanner brand=new Scanner(System.in);
+        String brandName=brand.nextLine();
+        for (Notebook nb : notebooks) {
+            if (nb.getBrandName().equals(brandName)) {
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+                System.out.format("| %-2s | %-27s |%-12s | %-10s | %-7s |%-10s| %-9s | %-16s | %-9s |\n",
+                        "ID", "Ürün Adı", "Marka", "Fiyat", "Stok", "Ekran","Depoloama", "İndirim Oranı", "RAM");
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+                System.out.format("| %-2d | %-27s |%-12s | %-10.2f |%-7d| %-10d | %-9d | %-16d | %-9d |\n",
+                        nb.getId(), nb.getName(), nb.getBrandName(), nb.getPrice(), nb.getAmountOfStock(),nb.getScreen(), nb.getMemory(),
+                        nb.getDiscountRate(),  nb.getRam());
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+                break;
+            }
+            if (!nb.getBrandName().equals(brandName)) {
+                System.out.println("Ürün bulunamadı!");
+            }
+        }
     }
     public static boolean isContainsId(int id) {
         for (Notebook nb : notebooks) {

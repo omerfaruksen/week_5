@@ -41,12 +41,21 @@ public class Consol {
                             screenConsol();
                             break;
                         case 3:
-
-
+                            NotebookOperations.deleteNotebook();
                             screenConsol();
                             break;
                         case 4:
-
+                            System.out.print("Filtreleme kriterini belirleyiniz : \n 1- ID numarasına göre \n 2- Markasına göre \n Tercihiniz : ");
+                            Scanner scan=new Scanner(System.in);
+                            int choose=scan.nextInt();
+                            if (choose==1){
+                                NotebookOperations.filterById();
+                            } else if (choose==2) {
+                                NotebookOperations.filterByBrandName();
+                            }else{
+                                System.out.println("Hatalı bir giriş yaptınız!! Ana Menüye yönlendiriliyorsunuz!!");
+                                screenConsol();
+                            }
                             screenConsol();
                             break;
                         default:
