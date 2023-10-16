@@ -16,7 +16,6 @@ public class NotebookOperations {
                 "ID", "Ürün Adı", "Marka", "Fiyat", "Stok", "Ekran","Depoloama", "İndirim Oranı", "RAM");
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
         for (Notebook nb : notebooks) {
-            //System.out.println(sm.getId()+" "+sm.getPrice()+" "+sm.getDiscountRate()+" "+sm.getAmountOfStock()+" "+sm.getName()+" "+sm.getMemory()+" "+sm.getScreen()+" "+sm.getBattary()+" "+sm.getRam()+" "+sm.getColor());
             System.out.format("| %-2d | %-27s |%-12s | %-10.2f |%-7d| %-10d | %-9d | %-16d | %-9d |\n",
                     nb.getId(), nb.getName(), nb.getBrandName(), nb.getPrice(), nb.getAmountOfStock(),nb.getScreen(), nb.getMemory(),
                     nb.getDiscountRate(),  nb.getRam());
