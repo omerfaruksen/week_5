@@ -3,14 +3,15 @@ import java.util.*;
 import java.util.HashMap;
 
 public class SmartPhoneOperations {
+    //Bir ArrayList oluşturdum ve varsayılan olarak 3 adet ürünü ben ekledim
     static ArrayList<SmartPhone> smartPhones = new ArrayList<>();
-
+    //ArrayListe varsayılan olarak eklenen ürünler
     public static void mobilePhones() {
         smartPhones.add(new SmartPhone(1, 3589.90, "APPLE", 15, 56, "IPHONE XSMAX", 128, 6.1, 4000, 6, "Mavi"));
         smartPhones.add(new SmartPhone(2, 45986.90, "XIAOMI", 25, 156, "XİAOMİ RED Mİ", 64, 6.1, 4000, 6, "Kırmız"));
         smartPhones.add(new SmartPhone(3, 15589.90, "SAMSUNG", 15, 10, "SAMSUNG A24", 64, 128, 4000, 6, "Siyah"));
     }
-
+    //Ürünlerin format() ile listelendiği kısım
     public static void printList() {
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.format("| %-2s | %-27s |%-12s | %-10s | %-10s | %-9s | %-16s | %-9s | %-10s | %-10s |\n",
@@ -24,7 +25,7 @@ public class SmartPhoneOperations {
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------");
         }
     }
-
+    //Kullanıcının ürün ekleme yapabildiği alan
     public static void addMobilePhones() {
         Scanner s = new Scanner(System.in);
         System.out.println("Yeni Ürün eklemek için aşağıdaki bilgileri doldurunuz : ");
@@ -32,6 +33,7 @@ public class SmartPhoneOperations {
         System.out.print("Ürün ID giriniz : ");
         int id = s.nextInt();
         s.nextLine();
+        //Kullanıcının girdiği Id numarasının kontrolünğn sağlandığı nokta
         if (isContainsId(id)) {
             System.out.println("Girilen ID başka bir ürün adına kayıtlıdır, lütfen farklı bir ID giriniz!");
             addMobilePhones();
@@ -71,7 +73,7 @@ public class SmartPhoneOperations {
         System.out.println("Ürün başarılı bir şekilde eklendi !");
         printList();
     }
-
+    //Kullanıcının ürün silme alanı
     public static void deleteMobilePhone() {
         printList();
         Scanner delete = new Scanner(System.in);
@@ -85,6 +87,7 @@ public class SmartPhoneOperations {
     }
 
     public static boolean isContainsId(int id) {
+        //Id kontrolünün yapıldığı metot
         for (SmartPhone sm : smartPhones) {
             if (sm.getId() == id) {
                 return true;
@@ -92,7 +95,7 @@ public class SmartPhoneOperations {
         }
         return false;
     }
-
+    //ID numarasına göre filtreleme yapılan alan
     public static void filterById() {
         System.out.println("ID numarasını giriniz : ");
         boolean isCheck=false;
@@ -115,6 +118,7 @@ public class SmartPhoneOperations {
         }
     }
     public static void filterByBrandName(){
+        //Markaya göre filtreleme yapılan alan
         System.out.print("Ürünün markasını giriniz : ");
         Scanner brand=new Scanner(System.in);
         String brandName=brand.nextLine();

@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Consol {
 
     public void screenConsol(){
+        //Kullanıcı karşılama ekranı
         System.out.println("PatikaStore Ürün Yönetim Sistemine Hoşgeldiniz!");
         System.out.println("1- Notebook İşlemmleri");
         System.out.println("2- Cep Telefonu İşlemleri");
@@ -14,6 +15,7 @@ public class Consol {
         System.out.println("-----------------------------------------------");
         SmartPhoneOperations.mobilePhones();
         NotebookOperations.noteBooks();
+        //İşlemlerin kullanıcı tarafından kullanıldığı esas alan burası
         while (true){
             switch (selected){
                 case 0:

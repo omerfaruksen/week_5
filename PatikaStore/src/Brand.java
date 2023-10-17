@@ -9,6 +9,8 @@ public class Brand  implements Comparable<Brand>{
         this.id = id;
         this.name = name;
     }
+    //Markaların listelendiği kısım
+    //Markalar TreeSet ile listelendi alfabetik olarak sıralanması daha rahatıma geldi
     static TreeSet<Brand> Brands =new TreeSet<>();
     static {
 
